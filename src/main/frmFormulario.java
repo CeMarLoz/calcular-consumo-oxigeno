@@ -14,7 +14,6 @@ import java.time.Duration;
 import java.time.LocalTime;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JFormattedTextField;
 import javax.swing.JTextField;
 
 /**
@@ -52,7 +51,7 @@ public class frmFormulario extends javax.swing.JFrame {
         java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel1 = new javax.swing.JPanel();
-        txtlitros = new javax.swing.JFormattedTextField();
+        txtlitros = new javax.swing.JTextField();
         txtdesdehora = new javax.swing.JTextField();
         txtdesdeminuto = new javax.swing.JTextField();
         txthastahora = new javax.swing.JTextField();
@@ -60,18 +59,18 @@ public class frmFormulario extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txttotalmin = new javax.swing.JFormattedTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        txttotallts = new javax.swing.JFormattedTextField();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         btncalcular = new javax.swing.JButton();
+        txttotallts = new javax.swing.JTextField();
+        txttotalmin = new javax.swing.JTextField();
         lbImage = new javax.swing.JLabel();
         btnlimpiar = new javax.swing.JButton();
         btnsalir = new javax.swing.JButton();
@@ -81,11 +80,11 @@ public class frmFormulario extends javax.swing.JFrame {
         setResizable(false);
 
         java.awt.GridBagLayout jPanel1Layout = new java.awt.GridBagLayout();
-        jPanel1Layout.columnWidths = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0};
+        jPanel1Layout.columnWidths = new int[] {0, 5, 0, 5, 0, 5, 0};
         jPanel1Layout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
         jPanel1.setLayout(jPanel1Layout);
 
-        txtlitros.setColumns(3);
+        txtlitros.setColumns(5);
         txtlitros.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtlitros.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -97,9 +96,16 @@ public class frmFormulario extends javax.swing.JFrame {
                 txtlitrosActionPerformed(evt);
             }
         });
+        txtlitros.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtlitrosKeyTyped(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         jPanel1.add(txtlitros, gridBagConstraints);
 
         txtdesdehora.setColumns(3);
@@ -120,7 +126,7 @@ public class frmFormulario extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 4;
         jPanel1.add(txtdesdehora, gridBagConstraints);
 
@@ -142,7 +148,7 @@ public class frmFormulario extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 4;
         jPanel1.add(txtdesdeminuto, gridBagConstraints);
 
@@ -164,7 +170,7 @@ public class frmFormulario extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 8;
         jPanel1.add(txthastahora, gridBagConstraints);
 
@@ -186,7 +192,7 @@ public class frmFormulario extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 8;
         jPanel1.add(txthastaminiuto, gridBagConstraints);
 
@@ -194,37 +200,25 @@ public class frmFormulario extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         jPanel1.add(jLabel1, gridBagConstraints);
 
         jLabel2.setText("Desde:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         jPanel1.add(jLabel2, gridBagConstraints);
 
         jLabel3.setText("Hora");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 6;
         jPanel1.add(jLabel3, gridBagConstraints);
 
-        txttotalmin.setEditable(false);
-        txttotalmin.setBackground(new java.awt.Color(204, 204, 204));
-        txttotalmin.setColumns(6);
-        txttotalmin.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txttotalmin.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-        txttotalmin.setEnabled(false);
-        txttotalmin.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 14;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        jPanel1.add(txttotalmin, gridBagConstraints);
-
         jLabel4.setText("Minuto");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 6;
         jPanel1.add(jLabel4, gridBagConstraints);
 
@@ -232,45 +226,32 @@ public class frmFormulario extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         jPanel1.add(jLabel5, gridBagConstraints);
 
         jLabel6.setText("Hora");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
         jPanel1.add(jLabel6, gridBagConstraints);
 
         jLabel7.setText(":");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 8;
         jPanel1.add(jLabel7, gridBagConstraints);
 
         jLabel8.setText("Minuto");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 2;
         jPanel1.add(jLabel8, gridBagConstraints);
 
         jLabel9.setText(":");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 4;
         jPanel1.add(jLabel9, gridBagConstraints);
-
-        txttotallts.setEditable(false);
-        txttotallts.setBackground(new java.awt.Color(204, 204, 204));
-        txttotallts.setColumns(6);
-        txttotallts.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txttotallts.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-        txttotallts.setEnabled(false);
-        txttotallts.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 16;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        jPanel1.add(txttotallts, gridBagConstraints);
 
         jLabel10.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         jLabel10.setText("Total lts:");
@@ -311,11 +292,33 @@ public class frmFormulario extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 10;
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         jPanel1.add(btncalcular, gridBagConstraints);
+
+        txttotallts.setColumns(6);
+        txttotallts.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txttotallts.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txttotallts.setEnabled(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        jPanel1.add(txttotallts, gridBagConstraints);
+
+        txttotalmin.setColumns(6);
+        txttotalmin.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txttotalmin.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txttotalmin.setEnabled(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        jPanel1.add(txttotalmin, gridBagConstraints);
 
         btnlimpiar.setMnemonic('l');
         btnlimpiar.setText("Limpiar");
@@ -350,7 +353,7 @@ public class frmFormulario extends javax.swing.JFrame {
                         .addGap(0, 175, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lbImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -427,11 +430,6 @@ public class frmFormulario extends javax.swing.JFrame {
         txtlitros.grabFocus();
     }//GEN-LAST:event_btnlimpiarActionPerformed
 
-    private void txtlitrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtlitrosActionPerformed
-        txtlitros.setFocusLostBehavior(JFormattedTextField.PERSIST);
-        ((Component) evt.getSource()).transferFocus();
-    }//GEN-LAST:event_txtlitrosActionPerformed
-
     private void txtdesdehoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdesdehoraActionPerformed
         ((Component) evt.getSource()).transferFocus();
     }//GEN-LAST:event_txtdesdehoraActionPerformed
@@ -449,25 +447,25 @@ public class frmFormulario extends javax.swing.JFrame {
     }//GEN-LAST:event_txthastaminiutoActionPerformed
 
     private void txtdesdehoraKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtdesdehoraKeyTyped
-        if (!Character.isDigit(evt.getKeyChar()) && evt.getKeyChar() != '\b') {
+        if (!Character.isDigit(evt.getKeyChar())) { // && evt.getKeyChar() != '\b'
             evt.consume();
         }
     }//GEN-LAST:event_txtdesdehoraKeyTyped
 
     private void txtdesdeminutoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtdesdeminutoKeyTyped
-        if (!Character.isDigit(evt.getKeyChar()) && evt.getKeyChar() != '\b') {
+        if (!Character.isDigit(evt.getKeyChar())) {
             evt.consume();
         }
     }//GEN-LAST:event_txtdesdeminutoKeyTyped
 
     private void txthastahoraKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txthastahoraKeyTyped
-        if (!Character.isDigit(evt.getKeyChar()) && evt.getKeyChar() != '\b') {
+        if (!Character.isDigit(evt.getKeyChar())) {
             evt.consume();
         }
     }//GEN-LAST:event_txthastahoraKeyTyped
 
     private void txthastaminiutoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txthastaminiutoKeyTyped
-        if (!Character.isDigit(evt.getKeyChar()) && evt.getKeyChar() != '\b') {
+        if (!Character.isDigit(evt.getKeyChar())) {
             evt.consume();
         }
     }//GEN-LAST:event_txthastaminiutoKeyTyped
@@ -482,10 +480,6 @@ public class frmFormulario extends javax.swing.JFrame {
         ((JTextField) evt.getSource()).selectAll();
     }//GEN-LAST:event_txtdesdehoraFocusGained
 
-    private void txtlitrosFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtlitrosFocusGained
-        ((JTextField) evt.getSource()).selectAll();
-    }//GEN-LAST:event_txtlitrosFocusGained
-
     private void txtdesdeminutoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtdesdeminutoFocusGained
         ((JTextField) evt.getSource()).selectAll();
     }//GEN-LAST:event_txtdesdeminutoFocusGained
@@ -497,6 +491,24 @@ public class frmFormulario extends javax.swing.JFrame {
     private void txthastaminiutoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txthastaminiutoFocusGained
         ((JTextField) evt.getSource()).selectAll();
     }//GEN-LAST:event_txthastaminiutoFocusGained
+
+    private void txtlitrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtlitrosActionPerformed
+        ((Component) evt.getSource()).transferFocus();
+    }//GEN-LAST:event_txtlitrosActionPerformed
+
+    private void txtlitrosFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtlitrosFocusGained
+        ((JTextField) evt.getSource()).selectAll();
+    }//GEN-LAST:event_txtlitrosFocusGained
+
+    private void txtlitrosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtlitrosKeyTyped
+        if (!Character.isDigit(evt.getKeyChar()) && evt.getKeyChar() != '.') {
+            evt.consume();
+        }
+
+        if (evt.getKeyChar() == '.' && ((JTextField) evt.getSource()).getText().contains(".")) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtlitrosKeyTyped
 
     /**
      * @param args the command line arguments
@@ -556,8 +568,8 @@ public class frmFormulario extends javax.swing.JFrame {
     private javax.swing.JTextField txtdesdeminuto;
     private javax.swing.JTextField txthastahora;
     private javax.swing.JTextField txthastaminiuto;
-    private javax.swing.JFormattedTextField txtlitros;
-    private javax.swing.JFormattedTextField txttotallts;
-    private javax.swing.JFormattedTextField txttotalmin;
+    private javax.swing.JTextField txtlitros;
+    private javax.swing.JTextField txttotallts;
+    private javax.swing.JTextField txttotalmin;
     // End of variables declaration//GEN-END:variables
 }
